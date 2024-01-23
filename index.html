@@ -21,13 +21,9 @@
 <body>
     <div class="container d-flex justify-content-center my-4">
         <div id="root">
-            <h1>To Do list</h1>
+            <h1 class="text-center">To Do list</h1>
             <ul class="list-group">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
+                <li v-for="item in toDoList" class="list-group-item d-flex justify-content-between">{{ item.text }}  <button type="button" class="btn-close" aria-label="Close"></button></li>
               </ul>
 
         </div>
