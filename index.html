@@ -11,6 +11,11 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- FontAwesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css'
+        integrity='sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ=='
+        crossorigin='anonymous' />
+
     <!-- Vue 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -25,7 +30,10 @@
             <ul class="list-group">
                 <li v-for="task in toDoList" class="list-group-item d-flex justify-content-between">{{ task.text }} 
                      <button type="button" class="btn-close" @click="deleteTask(task.id)"></button></li>
+                <li class="list-group-item d-flex"> <input class="form-control me-2" @keyup.enter="addTask" placeholder="aggiungi task" v-model.trim="newTask">
+                    <button class="btn btn-outline-success" type="submit" @click="addTask()" ><i class="fas fa-add"></i></button></li>
               </ul>
+              <h3 class="text-center" v-show="!toDoList.length">Non ci sono tasks</h3>
 
         </div>
 
